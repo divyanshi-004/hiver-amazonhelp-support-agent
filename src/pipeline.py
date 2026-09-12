@@ -31,21 +31,44 @@ class AmazonHelpPipeline:
             top_k=top_k,
         )
 
-        # 3. Generate a grounded reply
-        reply = self.generator.generate_reply(
-            customer_message=customer_message,
-            intent=classification["intent"],
-            confidence=classification["confidence"],
-            historical_cases=historical_cases,
-        )
-
-        # 4. Decide whether the request can be safely auto-handled
+        # 3. Decide whether the request can be safely auto-handled
+        #    before invoking the external LLM.
         escalation = self.escalation.decide(
             customer_message=customer_message,
             intent=classification["intent"],
             confidence=classification["confidence"],
             historical_cases=historical_cases,
         )
+
+        # 4. Generate a grounded reply only after the escalation
+        #    policy has determined that the request is eligible
+        #    for automated response generation.
+        reply = None
+
+        if escalation["decision"] == "AUTO":
+            try:
+                reply = self.generator.generate_reply(
+                    customer_message=customer_message,
+                    intent=classification["intent"],
+                    confidence=classification["confidence"],
+                    historical_cases=historical_cases,
+                )
+            except Exception as exc:
+                # External generation failure must never cause the
+                # agent to claim that an automated response succeeded.
+                escalation = {
+                    "decision": "HUMAN",
+                    "reason": (
+                        "Automatic response generation failed. "
+                        f"Escalating to a human agent. Error: {exc}"
+                    ),
+                }
+                reply = None
+
+        else:
+            # No autonomous response is generated for cases already
+            # determined to require human handling.
+            reply = None
 
         return {
             "customer_message": customer_message.strip(),
@@ -90,10 +113,6 @@ def print_analysis(result):
 
         print("-" * 70)
 
-    print("\nGENERATED REPLY")
-    print("=" * 70)
-    print(result["reply"])
-
     print("\nESCALATION DECISION")
     print("=" * 70)
     print(result["decision"])
@@ -101,6 +120,17 @@ def print_analysis(result):
     print("\nREASON")
     print("-" * 70)
     print(result["escalation_reason"])
+
+    print("\nGENERATED REPLY")
+    print("=" * 70)
+
+    if result["reply"]:
+        print(result["reply"])
+    else:
+        print(
+            "No automated reply generated. "
+            "Case requires human handling."
+        )
 
     print("=" * 70)
 
