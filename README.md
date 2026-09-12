@@ -98,9 +98,9 @@ The project includes:
 
 data/golden/amazonhelp_golden_200_cleaned.csv
 
-The evaluation set contains 200 curated/audited examples across the project's 10 intents.
+The evaluation set contains 200 human-verified examples across the project's 10 intents.
 
-The set is described as curated/audited rather than independently human-annotated.
+Initial candidate labels were reviewed against the customer's primary support need, and the final `verified_intent` labels were confirmed manually.
 
 4. Intent Taxonomy
 
@@ -185,7 +185,7 @@ The primary classifier is:
 
 TF-IDF + Logistic Regression
 
-The classifier is trained against the project's curated/audited intent set and returns:
+The classifier is trained against the project's human-verified intent set and returns:
 
 predicted intent
 confidence score
@@ -534,7 +534,7 @@ The 88.0% intent accuracy should not be interpreted as 88% production-safe auton
 
 Several limitations affect that interpretation:
 
-The evaluation set is curated/audited rather than independently human-annotated.
+The evaluation set was human-verified, but it was not independently annotated by multiple human reviewers.
 The 10-intent taxonomy contains closely related operational categories.
 Retrieval Recall@K is based on an intent-agreement proxy rather than human relevance judgement.
 Escalation is evaluated using policy-defined triggers rather than production-labelled decisions.
@@ -607,7 +607,7 @@ External inference failures must result in graceful human fallback rather than a
 
 The highest-value next steps are:
 
-independently human-verify the golden evaluation set
+have a second human annotator independently review the golden evaluation set
 calibrate classifier confidence
 improve retrieval using hybrid lexical + semantic search
 filter or weight historical cases by resolution usefulness
@@ -618,7 +618,7 @@ This project is an evaluated prototype rather than a production support system.
 
 It does not currently provide:
 
-independently human-labelled golden evaluation data
+independently double-annotated golden evaluation data
 human-labelled retrieval relevance
 calibrated classifier probabilities
 reliable large-scale automated response-quality metrics
@@ -633,7 +633,7 @@ This repository contains:
 runnable source code
 evaluation scripts
 evaluation outputs
-curated/audited golden evaluation set
+human-verified golden evaluation set
 reproducibility requirements
 project documentation
 
