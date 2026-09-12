@@ -13,9 +13,13 @@ The system is designed around one principle:
 Given a new AmazonHelp customer message, the agent performs four steps:
 
 1. **Intent classification** — identify the customer's primary support intent.
+
 2. **Historical retrieval** — retrieve similar AmazonHelp conversations and historical replies.
-3. **Response generation** — draft a concise reply grounded in retrieved historical evidence.
-4. **Escalation decision** — determine whether the case can be safely auto-handled or should be routed to a human.
+
+3. **Escalation decision** — determine whether the case can be safely auto-handled or should be routed to a human.
+
+4. **Response generation** — only for cases approved for AUTO handling, draft a concise reply grounded in retrieved historical evidence.
+
 
 ### Agent Flow
 
