@@ -1,0 +1,8 @@
+customer_text,expected,predicted,reason
+"@AmazonHelp 1. I placed order on 8oct2017 #Amazon #lie not on 25oct2017
+2. Why you cancel my order after 17days #Amazonscam https://t.co/6bQiZWkS9J",AUTO,HUMAN,"High-risk financial, legal, safety, security, or fraud-related language requires human review."
+@AmazonHelp Been off phone now 15-20 mins. “Manager” said she would credit my account and extend my Prime membership. Neither has happened so far.,HUMAN,AUTO,"Intent confidence (1.00) and historical evidence (1.00) meet the current auto-handling thresholds, with no high-risk signals."
+@AmazonHelp Have attempted all troubleshooting procedures. WiFi proximity is not the issue. Buggy device across many apps. Should I upgrade to FireTV?,AUTO,HUMAN,"High-risk financial, legal, safety, security, or fraud-related language requires human review."
+"@AmazonHelp Apparently, third party seller. I should have know I was being scammed when it said it was shipping from China. 
+
+You guys stole money from me a year and a half ago when 3rd party seller sold me counterfeit merchandise and your customer service lied to me, saying I’d be refunded.",AUTO,HUMAN,"High-risk financial, legal, safety, security, or fraud-related language requires human review."

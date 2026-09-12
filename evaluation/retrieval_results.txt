@@ -1,0 +1,11 @@
+RETRIEVAL EVALUATION
+======================================================================
+Golden examples: 200
+Evaluated examples: 200
+Recall@1: 0.3250
+Recall@3: 0.4650
+Recall@5: 0.5300
+Unrecognized retrieval results: 0
+
+Metric definition:
+Intent agreement between the golden query and retrieved historical customer messages is used as a proxy for retrieval relevance. This is not human-annotated relevance.

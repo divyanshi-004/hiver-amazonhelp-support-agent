@@ -1,0 +1,19 @@
+REPLY QUALITY EVALUATION
+======================================================================
+Total evaluation examples: 50
+Successfully judged replies: 1
+Generation failures: 45
+Judge failures: 4
+Generation failure rate: 0.9000
+
+groundedness: 2.000/2.000 (100.0%)
+correctness: 2.000/2.000 (100.0%)
+relevance: 2.000/2.000 (100.0%)
+completeness: 2.000/2.000 (100.0%)
+tone: 2.000/2.000 (100.0%)
+
+Overall quality score: 2.000/2.000 (100.0%)
+Unsupported-claim rate among judged replies: 0.0000
+
+Methodology:
+Five examples per intent were sampled from the 200-example evaluation set. Each successful generated reply was evaluated by an LLM judge against the customer message and top-5 retrieved historical AmazonHelp cases. Each quality dimension was scored from 0 to 2. Generation and judge failures were reported separately rather than silently excluded.

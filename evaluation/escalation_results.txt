@@ -1,0 +1,11 @@
+ESCALATION SAFETY EVALUATION
+======================================================================
+Golden examples: 200
+Accuracy: 0.9800
+Human-escalation precision: 0.8125
+Human-escalation recall: 0.9286
+Human-escalation F1: 0.8667
+False auto-handle rate: 0.0714
+
+Reference-label methodology:
+HUMAN was independently assigned to messages containing explicit high-risk, account-security, or explicit human-request triggers. Other examples were assigned AUTO for this safety-trigger benchmark. This is a policy benchmark, not a human-labelled production escalation gold set.

@@ -1,0 +1,24 @@
+HF ZERO-SHOT CLASSIFIER EVALUATION
+============================================================
+Golden examples: 200
+Accuracy: 0.3250
+Macro F1: 0.2881
+
+PER-INTENT RESULTS
+============================================================
+                                 precision    recall  f1-score   support
+
+       account_prime_membership       0.78      0.78      0.78        18
+                 delivery_issue       0.24      1.00      0.38        20
+                digital_content       0.35      0.53      0.42        17
+general_feedback_non_actionable       0.11      0.14      0.12        21
+    order_changes_cancellations       0.25      0.05      0.09        19
+          order_status_tracking       0.00      0.00      0.00        20
+    payments_billing_promotions       1.00      0.04      0.08        25
+         product_device_support       0.73      0.44      0.55        18
+    product_seller_availability       0.00      0.00      0.00        20
+   returns_refunds_replacements       0.53      0.41      0.46        22
+
+                       accuracy                           0.33       200
+                      macro avg       0.40      0.34      0.29       200
+                   weighted avg       0.41      0.33      0.28       200

@@ -1,0 +1,28 @@
+FAIR TF-IDF + LOGISTIC REGRESSION EVALUATION
+======================================================================
+Evaluation examples: 200
+Accuracy: 0.8800
+Macro F1: 0.8792
+
+PER-INTENT RESULTS
+======================================================================
+                                 precision    recall  f1-score   support
+
+       account_prime_membership       0.74      0.94      0.83        18
+                 delivery_issue       0.79      0.75      0.77        20
+                digital_content       0.75      0.88      0.81        17
+general_feedback_non_actionable       0.88      0.71      0.79        21
+    order_changes_cancellations       0.86      1.00      0.93        19
+          order_status_tracking       1.00      1.00      1.00        20
+    payments_billing_promotions       1.00      0.80      0.89        25
+         product_device_support       0.89      0.94      0.92        18
+    product_seller_availability       1.00      0.95      0.97        20
+   returns_refunds_replacements       0.90      0.86      0.88        22
+
+                       accuracy                           0.88       200
+                      macro avg       0.88      0.88      0.88       200
+                   weighted avg       0.89      0.88      0.88       200
+
+
+Evaluation protocol:
+Leave-one-out evaluation over the exact same 200-example golden set used for the HF zero-shot classifier. For each example, the model was trained on the other 199 examples and evaluated on the held-out example.
